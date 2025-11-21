@@ -35,12 +35,13 @@ const ReportPage: React.FC = () => {
         throw new Error('No access token available');
       }
 
-      const response = await fetch(${process.env.REACT_APP_API_URL}/reports, {
+      const apiUrl = process.env.REACT_APP_API_URL || '';
+      const response = await fetch(apiUrl + '/reports', {
         method: 'GET',
         headers: {
-          'Authorization': Bearer ${token},
-          'Accept': 'application/pdf,application/octet-stream'
-        }
+          Authorization: 'Bearer ' + token,
+          Accept: 'application/pdf,application/octet-stream',
+        },
       });
 
       if (response.status === 401 || response.status === 403) {
@@ -50,8 +51,13 @@ const ReportPage: React.FC = () => {
       }
 
       if (!response.ok) {
-        const text = await response.text().catch(() => '');
-        throw new Error(text || Request failed with status ${response.status});
+        let text = '';
+        try {
+          text = await response.text();
+        } catch (e) {
+          // ignore
+        }
+        throw new Error(text || 'Request failed with status ' + response.status);
       }
 
       // Считаем, что бэк отдаёт файл (PDF/zip/что угодно)
@@ -74,7 +80,11 @@ const ReportPage: React.FC = () => {
       a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An error occurred');
+      }
     } finally {
       setLoading(false);
     }
@@ -84,11 +94,12 @@ const ReportPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  if (!keycloak?.authenticated) {
+  // Без optional chaining, чтобы не ломать старый TS/ESLint
+  if (!keycloak || !keycloak.authenticated) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <button
-          onClick={() => keycloak.login()}
+          onClick={() => keycloak && keycloak.login()}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
           Login
@@ -105,9 +116,10 @@ const ReportPage: React.FC = () => {
         <button
           onClick={downloadReport}
           disabled={loading}
-          className={px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
-          }}
+          className={
+            'px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ' +
+            (loading ? 'opacity-50 cursor-not-allowed' : '')
+          }
         >
           {loading ? 'Generating Report...' : 'Download Report'}
         </button>
