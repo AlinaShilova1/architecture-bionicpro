@@ -5,23 +5,19 @@ import ReportPage from './components/ReportPage';
 
 const keycloakConfig: KeycloakConfig = {
   url: process.env.REACT_APP_KEYCLOAK_URL,
-  realm: process.env.REACT_APP_KEYCLOAK_REALM || "",
-  clientId: process.env.REACT_APP_KEYCLOAK_CLIENT_ID || ""
+  realm: process.env.REACT_APP_KEYCLOAK_REALM || '',
+  clientId: process.env.REACT_APP_KEYCLOAK_CLIENT_ID || '',
 };
 
-const keycloak = new Keycloak({
-  ...keycloakConfig,
-  // PKCE включается именно здесь
-  pkceMethod: 'S256'
-});
+// В конструктор передаём ТОЛЬКО конфиг без pkceMethod
+const keycloak = new Keycloak(keycloakConfig);
 
-// Настройки инициализации PKCE + Code Flow
+// PKCE и прочие опции — в initOptions
 const keycloakProviderInitConfig = {
-  onLoad: 'login-required',
+  onLoad: 'login-required' as const,
   checkLoginIframe: false,
-  pkceMethod: 'S256',
-  silentCheckSsoRedirectUri:
-    window.location.origin + '/silent-check-sso.html', // файл нужно добавить
+  pkceMethod: 'S256' as const,
+  silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
 };
 
 const App: React.FC = () => {
