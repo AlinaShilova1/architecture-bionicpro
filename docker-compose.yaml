@@ -1,5 +1,26 @@
 version: '3.8'
 
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.0
+  environment: &airflow-env
+    AIRFLOWCOREEXECUTOR: CeleryExecutor
+    AIRFLOWCOREFERNET_KEY: "something_fernet_key_base64"
+    AIRFLOWCOREDAGS_ARE_PAUSED_AT_CREATION: "false"
+    AIRFLOWCORELOAD_EXAMPLES: "false"
+    AIRFLOWDATABASESQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+    AIRFLOWCELERYRESULT_BACKEND: db+postgresql://airflow:airflow@postgres-airflow:5432/airflow
+    AIRFLOWCELERYBROKER_URL: redis://:@redis:6379/0
+    _AIRFLOW_WWW_USER_USERNAME: "airflow"
+    _AIRFLOW_WWW_USER_PASSWORD: "airflow"
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+  user: "${AIRFLOW_UID:-50000}:0"
+  depends_on:
+    - postgres-airflow
+    - redis
+
 services:
   keycloak_db:
     image: postgres:14
@@ -11,6 +32,7 @@ services:
       - ./postgres-keycloak-data:/var/lib/postgresql/data
     ports:
       - "5433:5432"
+
   keycloak:
     image: quay.io/keycloak/keycloak:21.1
     environment:
@@ -20,7 +42,7 @@ services:
       KC_DB_URL: jdbc:postgresql://keycloak_db:5432/keycloak_db
       KC_DB_USERNAME: keycloak_user
       KC_DB_PASSWORD: keycloak_password
-    command: 
+    command:
       - start-dev
       - --import-realm
     volumes:
@@ -29,6 +51,7 @@ services:
       - "8080:8080"
     depends_on:
       - keycloak_db
+
   frontend:
     build:
       context: ./frontend
@@ -40,3 +63,95 @@ services:
       REACT_APP_KEYCLOAK_URL: http://localhost:8080
       REACT_APP_KEYCLOAK_REALM: reports-realm
       REACT_APP_KEYCLOAK_CLIENT_ID: reports-frontend
+
+  # Postgres для самого Airflow
+  postgres-airflow:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-airflow-data:/var/lib/postgresql/data
+
+  # Redis как брокер для CeleryExecutor
+  redis:
+    image: redis:7
+
+  # Инициализация Airflow (БД + пользователь веб-интерфейса)
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db init
+        airflow users create \
+          --username $$AIRFLOWWEBSERVERDEFAULT_USER_USERNAME \
+          --password $$AIRFLOWWEBSERVERDEFAULT_USER_PASSWORD \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@example.com || true
+    environment:
+      <<: *airflow-env
+      AIRFLOWWEBSERVERDEFAULT_USER_USERNAME: "airflow"
+      AIRFLOWWEBSERVERDEFAULT_USER_PASSWORD: "airflow"
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8081:8080"
+    depends_on:
+      - airflow-init
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    depends_on:
+      - airflow-init
+
+  airflow-worker:
+    <<: *airflow-common
+    command: celery worker
+    depends_on:
+      - airflow-init
+
+  airflow-triggerer:
+    <<: *airflow-common
+    command: triggerer
+    depends_on:
+      - airflow-init
+
+  # ClickHouse для OLAP-витрины отчётов
+  clickhouse:
+    image: clickhouse/clickhouse-server:23.8
+    container_name: clickhouse
+    ports:
+      - "8123:8123"   # HTTP
+      - "9000:9000"   # Native
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+  # Postgres для CRM (источник данных для ETL)
+  crm-postgres:
+    image: postgres:15
+    container_name: crm-postgres
+    environment:
+      POSTGRES_USER: crm_user
+      POSTGRES_PASSWORD: crm_password
+      POSTGRES_DB: crm
+    ports:
+      - "5434:5432"
+    volumes:
+      - crm-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-airflow-data:
+  clickhouse-data:
+  crm-postgres-data:
