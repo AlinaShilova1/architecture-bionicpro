@@ -440,3 +440,292 @@ Traceback (most recent call last):
 SyntaxError: invalid syntax
 [2025-11-21T19:54:02.993+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
 [2025-11-21T19:54:03.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.028 seconds
+[2025-11-21T19:54:33.146+0000] {processor.py:161} INFO - Started process (PID=45) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:54:33.146+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:54:33.148+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:54:33.148+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:54:33.150+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:54:33.150+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:54:33.151+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:54:33.166+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T19:55:03.303+0000] {processor.py:161} INFO - Started process (PID=46) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:03.304+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:55:03.306+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:55:03.305+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:03.308+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:55:03.307+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:55:03.308+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:03.323+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T19:55:33.463+0000] {processor.py:161} INFO - Started process (PID=47) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:33.464+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:55:33.466+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:55:33.465+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:33.468+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:55:33.467+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:55:33.468+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:55:33.484+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.026 seconds
+[2025-11-21T19:56:03.587+0000] {processor.py:161} INFO - Started process (PID=48) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:03.587+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:56:03.589+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:56:03.588+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:03.591+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:56:03.590+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:56:03.592+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:03.608+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.027 seconds
+[2025-11-21T19:56:33.747+0000] {processor.py:161} INFO - Started process (PID=49) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:33.748+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:56:33.750+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:56:33.750+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:33.753+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:56:33.752+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:56:33.753+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:56:33.770+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.028 seconds
+[2025-11-21T19:57:03.906+0000] {processor.py:161} INFO - Started process (PID=50) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:03.906+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:57:03.908+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:57:03.908+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:03.910+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:57:03.909+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:57:03.911+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:03.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.033 seconds
+[2025-11-21T19:57:34.063+0000] {processor.py:161} INFO - Started process (PID=51) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:34.064+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:57:34.065+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:57:34.065+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:34.068+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:57:34.067+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:57:34.068+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:57:34.082+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.024 seconds
+[2025-11-21T19:58:04.221+0000] {processor.py:161} INFO - Started process (PID=52) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:04.222+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:58:04.223+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:58:04.223+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:04.226+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:58:04.225+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:58:04.226+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:04.241+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T19:58:34.381+0000] {processor.py:161} INFO - Started process (PID=53) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:34.381+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:58:34.383+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:58:34.383+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:34.386+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:58:34.385+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:58:34.386+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:58:34.400+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T19:59:04.550+0000] {processor.py:161} INFO - Started process (PID=54) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:04.551+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:59:04.552+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:59:04.552+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:04.555+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:59:04.554+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:59:04.555+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:04.570+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T19:59:34.709+0000] {processor.py:161} INFO - Started process (PID=55) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:34.709+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T19:59:34.711+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:59:34.710+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:34.713+0000] {logging_mixin.py:188} INFO - [2025-11-21T19:59:34.712+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T19:59:34.714+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T19:59:34.728+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.025 seconds
+[2025-11-21T20:00:04.867+0000] {processor.py:161} INFO - Started process (PID=56) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:00:04.868+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:00:04.870+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:00:04.869+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:00:04.872+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:00:04.871+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:00:04.872+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:00:04.886+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.024 seconds
+[2025-11-21T20:01:22.289+0000] {processor.py:161} INFO - Started process (PID=19) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:22.290+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:01:22.293+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:01:22.292+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:22.299+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:01:22.296+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:01:22.299+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:22.340+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.059 seconds
+[2025-11-21T20:01:53.405+0000] {processor.py:161} INFO - Started process (PID=20) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:53.406+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:01:53.407+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:01:53.407+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:53.410+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:01:53.409+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:01:53.410+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:01:53.431+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.031 seconds
+[2025-11-21T20:02:23.629+0000] {processor.py:161} INFO - Started process (PID=21) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:23.630+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:02:23.632+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:02:23.631+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:23.636+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:02:23.633+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:02:23.636+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:23.651+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.027 seconds
+[2025-11-21T20:02:53.848+0000] {processor.py:161} INFO - Started process (PID=22) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:53.849+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:02:53.852+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:02:53.851+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:53.855+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:02:53.854+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:02:53.856+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:02:53.871+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.028 seconds
+[2025-11-21T20:03:24.071+0000] {processor.py:161} INFO - Started process (PID=23) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:03:24.072+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:03:24.074+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:03:24.073+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:03:24.076+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:03:24.075+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 1
+    > Зайка:
+    ^
+SyntaxError: invalid syntax
+[2025-11-21T20:03:24.077+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:03:24.094+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.028 seconds
