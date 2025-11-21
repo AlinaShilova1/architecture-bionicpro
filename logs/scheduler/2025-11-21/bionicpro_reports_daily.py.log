@@ -1292,3 +1292,31 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'clickhouse_driver'
 [2025-11-21T20:20:31.493+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
 [2025-11-21T20:20:31.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.040 seconds
+[2025-11-21T20:21:01.649+0000] {processor.py:161} INFO - Started process (PID=88) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:01.649+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:21:01.651+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:21:01.651+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:01.654+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:21:01.653+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 6, in <module>
+    from clickhouse_driver import Client as ClickHouseClient
+ModuleNotFoundError: No module named 'clickhouse_driver'
+[2025-11-21T20:21:01.654+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:01.680+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.036 seconds
+[2025-11-21T20:21:32.150+0000] {processor.py:161} INFO - Started process (PID=90) to work on /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:32.153+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/bionicpro_reports_daily.py for tasks to queue
+[2025-11-21T20:21:32.158+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:21:32.157+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:32.171+0000] {logging_mixin.py:188} INFO - [2025-11-21T20:21:32.160+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/bionicpro_reports_daily.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/bionicpro_reports_daily.py", line 6, in <module>
+    from clickhouse_driver import Client as ClickHouseClient
+ModuleNotFoundError: No module named 'clickhouse_driver'
+[2025-11-21T20:21:32.172+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/bionicpro_reports_daily.py
+[2025-11-21T20:21:32.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/bionicpro_reports_daily.py took 0.083 seconds

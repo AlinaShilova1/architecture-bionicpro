@@ -674,3 +674,23 @@ File Path                                     PID    Runtime      # DAGs    # Er
 /opt/airflow/dags/hello_dag.py                                         1           0  0.10s           2025-11-21T20:20:27
 /opt/airflow/dags/bionicpro_reports_daily.py                           0           1  0.10s           2025-11-21T20:20:31
 ================================================================================
+[2025-11-21T20:21:02.882+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/bionicpro_reports_daily.py                           0           1  0.10s           2025-11-21T20:21:01
+/opt/airflow/dags/hello_dag.py                                         1           0  0.10s           2025-11-21T20:20:57
+================================================================================
+[2025-11-21T20:21:23.093+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-11-21T20:21:23.094+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2025-11-21T20:21:33.340+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/hello_dag.py                                         1           0  0.31s           2025-11-21T20:21:27
+/opt/airflow/dags/bionicpro_reports_daily.py                           0           1  0.10s           2025-11-21T20:21:32
+================================================================================
