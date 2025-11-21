@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   keycloak_db:
     image: postgres:14
@@ -51,51 +53,50 @@ services:
     volumes:
       - postgres-airflow-data:/var/lib/postgresql/data
 
-    airflow-webserver:
-      image: apache/airflow:2.9.0
-      environment:
-        AIRFLOWCOREEXECUTOR: LocalExecutor
-        AIRFLOWCOREFERNET_KEY: "something_fernet_key_base64"
-        AIRFLOWCOREDAGS_ARE_PAUSED_AT_CREATION: "false"
-        AIRFLOWCORELOAD_EXAMPLES: "false"
-        AIRFLOWDATABASESQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
-        _AIRFLOW_WWW_USER_USERNAME: "admin"
-        _AIRFLOW_WWW_USER_PASSWORD: "admin"
-      volumes:
-        - ./dags:/opt/airflow/dags
-        - ./logs:/opt/airflow/logs
-        - ./plugins:/opt/airflow/plugins
-      command: >
-        bash -c "
-        airflow db upgrade &&
-        airflow users create --username ${_AIRFLOW_WWW_USER_USERNAME} --password ${_AIRFLOW_WWW_USER_PASSWORD} --firstname Admin --lastname User --role Admin --email admin@example.com || true &&
-        exec airflow webserver
-        "
-      ports:
-        - "8081:8080"
-      depends_on:
-        - postgres-airflow
+  # Упрощённый Airflow: webserver + scheduler (LocalExecutor)
+  airflow-webserver:
+    image: apache/airflow:2.9.0
+    environment:
+      AIRFLOWCOREEXECUTOR: LocalExecutor
+      AIRFLOWCOREFERNET_KEY: "something_fernet_key_base64"
+      AIRFLOWCOREDAGS_ARE_PAUSED_AT_CREATION: "false"
+      AIRFLOWCORELOAD_EXAMPLES: "false"
+      AIRFLOWDATABASESQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    command: >
+      bash -c "
+      airflow db upgrade &&
+      airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || true &&
+      exec airflow webserver
+      "
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres-airflow
 
-    airflow-scheduler:
-      image: apache/airflow:2.9.0
-      environment:
-        AIRFLOWCOREEXECUTOR: LocalExecutor
-        AIRFLOWCOREFERNET_KEY: "something_fernet_key_base64"
-        AIRFLOWCOREDAGS_ARE_PAUSED_AT_CREATION: "false"
-        AIRFLOWCORELOAD_EXAMPLES: "false"
-        AIRFLOWDATABASESQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
-      volumes:
-        - ./dags:/opt/airflow/dags
-        - ./logs:/opt/airflow/logs
-        - ./plugins:/opt/airflow/plugins
-      command: >
-        bash -c "
-        airflow db upgrade &&
-        exec airflow scheduler
-        "
-      depends_on:
-        - postgres-airflow
-        - airflow-webserver
+  airflow-scheduler:
+    image: apache/airflow:2.9.0
+    environment:
+      AIRFLOWCOREEXECUTOR: LocalExecutor
+      AIRFLOWCOREFERNET_KEY: "something_fernet_key_base64"
+      AIRFLOWCOREDAGS_ARE_PAUSED_AT_CREATION: "false"
+      AIRFLOWCORELOAD_EXAMPLES: "false"
+      AIRFLOWDATABASESQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow:5432/airflow
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    command: >
+      bash -c "
+      airflow db upgrade &&
+      exec airflow scheduler
+      "
+    depends_on:
+      - postgres-airflow
+      - airflow-webserver
 
   # ClickHouse для OLAP-витрины отчётов
   clickhouse:
@@ -128,4 +129,3 @@ volumes:
   postgres-airflow-data:
   clickhouse-data:
   crm-postgres-data:
-  postgres-keycloak-data:
