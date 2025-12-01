@@ -42,6 +42,9 @@ services:
       REACT_APP_KEYCLOAK_URL: http://localhost:8080
       REACT_APP_KEYCLOAK_REALM: reports-realm
       REACT_APP_KEYCLOAK_CLIENT_ID: reports-frontend
+    depends_on:
+      - reports-api
+      - keycloak
 
   # Postgres для Airflow (metadata DB)
   postgres-airflow:
@@ -53,7 +56,7 @@ services:
     volumes:
       - postgres-airflow-data:/var/lib/postgresql/data
 
-  # Упрощённый Airflow: webserver + scheduler (LocalExecutor)
+  # Airflow webserver
   airflow-webserver:
     image: apache/airflow:2.9.0
     environment:
@@ -77,6 +80,7 @@ services:
     depends_on:
       - postgres-airflow
 
+  # Airflow scheduler
   airflow-scheduler:
     image: apache/airflow:2.9.0
     environment:
@@ -124,6 +128,20 @@ services:
       - "5434:5432"
     volumes:
       - crm-postgres-data:/var/lib/postgresql/data
+
+  # НОВЫЙ сервис: Java backend для /reports
+  reports-api:
+    build:
+      context: ./reports-api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+    depends_on:
+      - clickhouse
+      - crm-postgres
+      - keycloak
 
 volumes:
   postgres-airflow-data:

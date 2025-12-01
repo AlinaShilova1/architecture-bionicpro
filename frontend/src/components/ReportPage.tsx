@@ -13,7 +13,6 @@ const ReportPage: React.FC = () => {
     }
 
     if (!keycloak.authenticated) {
-      // на всякий случай — если вдруг состояние рассинхронизировалось
       keycloak.login();
       return;
     }
@@ -22,10 +21,7 @@ const ReportPage: React.FC = () => {
       setLoading(true);
       setError(null);
 
-      // Перед запросом — обновляем токен (важно и для PKCE + короткого TTL)
-      // 30 секунд — минимальный остаток жизни токена
       await keycloak.updateToken(30).catch(() => {
-        // если refresh не удался — уходим на логин
         keycloak.login();
         throw new Error('Session expired, redirecting to login');
       });
@@ -40,51 +36,26 @@ const ReportPage: React.FC = () => {
         method: 'GET',
         headers: {
           Authorization: 'Bearer ' + token,
-          Accept: 'application/pdf,application/octet-stream',
+          Accept: 'text/csv,application/octet-stream',
         },
       });
 
-      if (response.status === 401 || response.status === 403) {
-        // неавторизован / нет прав — пробуем перелогинить
-        keycloak.login();
-        throw new Error('Unauthorized. Redirecting to login.');
-      }
-
       if (!response.ok) {
-        let text = '';
-        try {
-          text = await response.text();
-        } catch (e) {
-          // ignore
-        }
+        const text = await response.text().catch(() => '');
         throw new Error(text || 'Request failed with status ' + response.status);
       }
 
-      // Считаем, что бэк отдаёт файл (PDF/zip/что угодно)
       const blob = await response.blob();
-
-      // Пытаемся вытащить имя файла из заголовка, если бэк его задаёт
-      const disposition = response.headers.get('Content-Disposition') || '';
-      let filename = 'report.pdf';
-      const filenameMatch = disposition.match(/filename\*?=(?:UTF-8'')?["']?([^;"']+)/i);
-      if (filenameMatch && filenameMatch[1]) {
-        filename = decodeURIComponent(filenameMatch[1]);
-      }
-
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = filename;
+      a.download = 'report.csv';
       document.body.appendChild(a);
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('An error occurred');
-      }
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -94,7 +65,6 @@ const ReportPage: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  // Без optional chaining, чтобы не ломать старый TS/ESLint
   if (!keycloak || !keycloak.authenticated) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

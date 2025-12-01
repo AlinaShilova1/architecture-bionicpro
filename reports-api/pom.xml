@@ -1,0 +1,27 @@
+<dependencies>
+    <!-- REST API -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- JWT resource server (Keycloak) -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+    </dependency>
+
+    <!-- JDBC + ClickHouse -->
+    <dependency>
+        <groupId>ru.yandex.clickhouse</groupId>
+        <artifactId>clickhouse-jdbc</artifactId>
+        <version>0.4.6</version>
+    </dependency>
+
+    <!-- Удобства -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    </dependency>
+</dependencies>
