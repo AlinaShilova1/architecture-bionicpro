@@ -38,9 +38,9 @@
 
         <!-- JDBC + ClickHouse -->
         <dependency>
-            <groupId>ru.yandex.clickhouse</groupId>
+            <groupId>com.clickhouse</groupId>
             <artifactId>clickhouse-jdbc</artifactId>
-            <version>0.4.6</version>
+            <version>0.6.3</version>
         </dependency>
 
         <!-- Удобства -->

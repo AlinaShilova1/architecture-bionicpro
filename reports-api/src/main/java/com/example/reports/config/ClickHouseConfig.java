@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import ru.yandex.clickhouse.ClickHouseDataSource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 @Configuration
 public class ClickHouseConfig {
@@ -23,10 +22,12 @@ public class ClickHouseConfig {
 
     @Bean
     public DataSource clickHouseDataSource() {
-        Properties props = new Properties();
-        props.setProperty("user", username);
-        props.setProperty("password", password);
-        return new ClickHouseDataSource(url, props);
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("com.clickhouse.jdbc.ClickHouseDriver");
+        ds.setUrl(url);
+        ds.setUsername(username);
+        ds.setPassword(password);
+        return ds;
     }
 
     @Bean
