@@ -36,7 +36,13 @@
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
 
-        <!-- JDBC + ClickHouse -->
+        <!-- JDBC infrastructure (JdbcTemplate, DataSource, etc.) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- JDBC + ClickHouse (новый драйвер) -->
         <dependency>
             <groupId>com.clickhouse</groupId>
             <artifactId>clickhouse-jdbc</artifactId>
@@ -50,13 +56,13 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Для health-check, если захочешь -->
+        <!-- Health-check (опционально) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Тесты (можно потом убрать/игнорировать) -->
+        <!-- Тесты -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
